@@ -5,6 +5,16 @@ using UnityEngine;
 public class Basket : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Text scoreGT;
+
+    void Start()
+    {
+        // Find a reference to the ScoreCounter GameObject
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        scoreGT = scoreGO.GetComponent<Text>(); 
+        scoreGT.text = "0";
+    }
+
     void Update()
     {
         // Get the current screen position of the mouse from Input

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ApplePicker : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Set in Inspector")]
 
     public GameObject basketPrefab;
     public int numBaskets = 3;
@@ -15,8 +16,7 @@ public class ApplePicker : MonoBehaviour
     {
         for (int i = 0; i < numBaskets; i++)
         {
-            GameObject tBasketGO = Instantiate<GameObject>
-            (basketPrefab);
+            GameObject tBasketGO = Instantiate<GameObject>(basketPrefab);
             Vector3 pos = Vector3.zero;
             pos.y = basketBottomY + (basketSpacingY * i);
             tBasketGO.transform.position = pos;
@@ -25,13 +25,5 @@ public class ApplePicker : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Vector3 mousePos2D = Input.mousePosition;
-        mousePos2D.z = -Camera.main.transform.position.z;
-        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-        Vector3 pos = this.transform.position;
-        pos.x = mousePos3D.x;
-        this.transform.position = pos;
-    }
+
 }
